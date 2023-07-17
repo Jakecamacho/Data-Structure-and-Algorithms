@@ -4,8 +4,10 @@
 #include "TicketQueue.h"
 #include "TicketHashTable.h"
 
+
 using namespace std;
 
+// defined for users to input 
 #define COMPLETED "COMPLETED"
 #define BACK "BACK"
 #define EXIT "EXIT"
@@ -17,16 +19,15 @@ int main(){
     cout<< "\n            Please enter the customers details for each ticket              "<<endl;
     cout<< "\n     Once finished, type 'COMPLETED' to stop adding ticket to the list      "<<endl;
     cout<< "\n****************************************************************************"<<endl;
-
+    //defined as they are used within the while loops and helps to break out of these depending on the users input
     bool taskInput = true;
     bool applicationRunning = true;
     bool ticketListMenu = true;
 
-    ticketQueue *ticketList = new ticketQueue();
+    ticketQueue *ticketList = new ticketQueue(); //initalises the priority queue 
 
-    while (taskInput){
+    while (taskInput){ // loops through until a users enters one of the values assigned above 
         string userName;
-        string userEmail;
         string userNumber;
         int userCollectionTime;
         string assigned;
@@ -34,7 +35,7 @@ int main(){
         cout << "Name: "<<endl;
         getline(cin, userName);
 
-        if (userName == COMPLETED){
+        if (userName == COMPLETED){ // if the users enters this value then it will break out the while loop 
             taskInput = false;
             break;
         }
@@ -51,20 +52,20 @@ int main(){
 
         cout<< "Ticket has been sent to the queue to be added! Please add any further tickets or input 'COMPLETED' "<<endl;
 
-        ticketList->insert(new ticket(userCollectionTime, userName, userNumber, assigned));
+        ticketList->insert(new ticket(userCollectionTime, userName, userNumber, assigned)); // inserts the inputs into the priority queue 
 
     }
 
     cout<< "\n****************************************************************************"<<endl;
     cout<< "\n                               Ticket Items                                 "<<endl;
 
-    ticketHashTable *ticketTable = new ticketHashTable();
+    ticketHashTable *ticketTable = new ticketHashTable(); // initialises the hash table 
 
 
-    while(!ticketList-> isEmpty()){
-        ticket *item = ticketList->remove();
+    while(!ticketList-> isEmpty()){ //loops through the items in the priority queue
+        ticket *item = ticketList->remove(); //removes the top item in the priority queue and displays its details 
         cout<< "Collection Time:"<< item->collection_time << "\n Name:"<< item->name << "\t Contact Number:"<< item->contact_number<< "\t Assigned to:" << item->assigned<<endl;
-        ticketTable->insert(item);
+        ticketTable->insert(item); // inserts item into the hash table 
     }   
     
     while (applicationRunning){
@@ -85,7 +86,7 @@ int main(){
         cin.clear();
 
         
-        if(userInput == BACK){
+        if(userInput == BACK){ // if user inputs back it will exit the while loop 
             applicationRunning = false;
             break;
         }
@@ -110,7 +111,7 @@ int main(){
                     cout<< "Input customers Name:"<<endl;
                     getline(cin, nameInput);
 
-                    ticketToSearch = ticketTable->search(nameInput);
+                    ticketToSearch = ticketTable->search(nameInput); // searches the hash table for the name the user has inputted
                     if(ticketToSearch && ticketToSearch->name == nameInput){
                         cout<< "Ticket Found!"<<endl;
                         cout<< "Name: "<< ticketToSearch->name<<endl;
@@ -126,7 +127,7 @@ int main(){
                     cout<< "Input name of assignee:"<<endl;
                     getline(cin, searchInput);
 
-                    ticketToSearch = ticketTable->search(searchInput);
+                    ticketToSearch = ticketTable->search(searchInput); // searches the hash table for the name the user has inputted
                     if(ticketToSearch && ticketToSearch->assigned == searchInput){
                         cout<< "Ticket Found!"<<endl;
                         cout<< "Name: "<< ticketToSearch->name<<endl;
@@ -164,7 +165,7 @@ int main(){
                     break;
                 }
 
-                ticketToComplete = ticketTable->ticketCompleted(completeInput);
+                ticketToComplete = ticketTable->ticketCompleted(completeInput); // searches the hash table for the name the user has inputted
                 if(ticketToComplete && ticketToComplete->name == completeInput){
                     cout<< "\n The Ticket has been found and marked as completed! Your table with uncomplete tickets can be seen below "<<endl;
                     if ((ticketTable->isEmpty()) == 0){
@@ -172,7 +173,7 @@ int main(){
                         break;
                     }
                     else{
-                        ticketTable->display();
+                        ticketTable->display(); // displays the tickettable only if it has values in it 
                     }
                 }
                 else{
@@ -186,7 +187,7 @@ int main(){
                 cout<< "\n                         Table of Tickets                                   "<<endl;
                 cout<< "\n****************************************************************************"<<endl;
 
-                ticketTable->display();
+                ticketTable->display(); // view entries in table 
                 break;
 
             }

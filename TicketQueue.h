@@ -2,7 +2,7 @@
 # include <iostream>
 # include "Ticket.h"
 
-# define SIZE 35
+# define SIZE 100 // defines the size of the queue 
 
 using namespace std;
 
@@ -10,11 +10,11 @@ class ticketQueue{
 
 private:
     int count; 
-    ticket** data;
+    ticket **data; // declares data as a pointer to a pointer ticket
 public:
-    ticketQueue();
+    ticketQueue(); // constructor 
     void insert (ticket* item);
-    ticket* remove();
+    ticket* remove(); //pointer to the remove method
     bool isEmpty();
     bool isFull();
 };
