@@ -5,7 +5,7 @@
 
 int ticketHashTable ::hashFunction(string key){
     int ASCIITotal = 0;
-    for (int t =0; t < key.length(); t++){
+    for (int t = 0; t < key.length(); t++){
         ASCIITotal += (int)key[t]; // works by casting a string to the ASCII int value 
     }
     return ASCIITotal % TABLE_SIZE; // returns hash key 
@@ -14,7 +14,7 @@ int ticketHashTable ::hashFunction(string key){
 
 int ticketHashTable :: doubleHashFunction(string key){ //second hash function 
     int ASCIIKey = hashFunction(key); // uses the return value from the first hashfunction to re-key
-    return PRIME - (ASCIIKey % TABLE_SIZE);     
+    return PRIME - (ASCIIKey);     
 }
 
 ticketHashTable :: ticketHashTable(){

@@ -66,6 +66,11 @@
     "vector": "cpp",
     "iostream": "cpp",
     "ostream": "cpp",
-    "istream": "cpp"
+    "istream": "cpp",
+    "__bit_reference": "cpp",
+    "bitset": "cpp",
+    "unordered_map": "cpp",
+    "chrono": "cpp",
+    "algorithm": "cpp"
   }
 }

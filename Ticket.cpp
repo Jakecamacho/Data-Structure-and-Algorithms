@@ -7,6 +7,6 @@ ticket :: ticket(int collection_time,string name, string contact_number, string 
 
 }
 
-bool ticket :: operator<(const ticket& rhd) {
+bool ticket :: operator< (const ticket& rhd) {
     return this->collection_time < rhd.collection_time; // used to overload the '<' operator and works by comparing two ticket references and ordering them by collection time in ascending order.
 }

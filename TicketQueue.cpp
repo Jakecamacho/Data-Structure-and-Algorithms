@@ -4,7 +4,7 @@
 
 
 ticketQueue :: ticketQueue(int size){
-    data = new ticket *[size]; // constructor which uses the size parameter to initalise the queue 
+    data = new ticket*[size]; // constructor which uses the size parameter to initalise the queue 
     count = 0;
 }
 
@@ -21,14 +21,15 @@ void ticketQueue :: insert(ticket* item){
             else{
                 break;
             }
-            data[t + 1] = item; // this adds the item to the correct place within the queue.
-            count++;
         }
+        data[t + 1] = item; // this adds the item to the correct place within the queue.
+        count++;
     }
 }
 
 ticket* ticketQueue :: remove(){
-    return data[count--];
+    count--;
+    return data[count];
 }
 
 bool ticketQueue :: isFull(){
