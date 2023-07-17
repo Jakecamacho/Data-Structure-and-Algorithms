@@ -36,7 +36,7 @@ void ticketHashTable :: display(){
     cout << '\n';
     for (int t = 0; t < TABLE_SIZE; t++){ //loop through every value in the table
         if(data[t] != NULL){ // if the value is not equal to null, then display the value 
-            cout<< "Index" << t << "\n Name:" <<data[t]->name << "\n Contact Number:" <<data[t]->contact_number<< "\n Assignee:" <<data[t]->collection_time<<"\n Collection Time:" <<data[t]->assigned<<endl;
+            cout<< "Index" << t << "\n Name:" <<data[t]->name << "\n Contact Number:" <<data[t]->contact_number<< "\n Collection Time:" <<data[t]->collection_time<<"\n Assignee:" <<data[t]->assigned<<endl;
         }
     }   
 }

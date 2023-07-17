@@ -41,7 +41,6 @@ int main(){
         }
 
         cout << "Contact Number: "<<endl;
-        cin >> userNumber;
         getline(cin, userNumber);
         cout << "Collection time: "<<endl;
         cin >> userCollectionTime;
@@ -64,7 +63,7 @@ int main(){
 
     while(!ticketList->isEmpty()){ //loops through the items in the priority queue
         ticket *item = ticketList->remove(); //removes the top item in the priority queue and displays its details 
-        cout<< "Collection Time:"<< item->collection_time << "\n Name:"<< item->name << "\t Contact Number:"<< item->contact_number<< "\t Assigned to:" << item->assigned<<endl;
+        cout<< "Collection Time:"<< item->collection_time << "\n Name:"<< item->name << "\t Contact Number:"<< item->contact_number << "\t Assigned to:" << item->assigned<<endl;
         ticketTable->insert(item); // inserts item into the hash table 
     }   
     
@@ -87,7 +86,6 @@ int main(){
 
         
         if(userInput == BACK){ // if user inputs back it will exit the while loop 
-            applicationRunning = false;
             break;
         }
 
@@ -107,7 +105,6 @@ int main(){
                 cin.clear();
 
                 if(searchInput == "BACK"){
-                    ticketListMenu = false;
                     break;
                 }
 
