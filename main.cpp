@@ -24,7 +24,7 @@ int main(){
     bool applicationRunning = true;
     bool ticketListMenu = true;
 
-    ticketQueue *ticketList = new ticketQueue(); //initalises the priority queue 
+    ticketQueue *ticketList = new ticketQueue(20); //initalises the priority queue 
 
     while (taskInput){ // loops through until a users enters one of the values assigned above 
         string userName;

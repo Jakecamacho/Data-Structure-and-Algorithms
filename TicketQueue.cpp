@@ -3,8 +3,8 @@
 # include "TicketQueue.h"
 
 
-ticketQueue :: ticketQueue(){
-    data = new ticket *[SIZE]; // constructor which uses the size parameter to initalise the queue 
+ticketQueue :: ticketQueue(int size){
+    data = new ticket *[size]; // constructor which uses the size parameter to initalise the queue 
     count = 0;
 }
 
@@ -15,7 +15,7 @@ void ticketQueue :: insert(ticket* item){
     else{ // if the queue is not empty, then it loops through all items in the queue 
         int t;
         for (t = (count -1); t >= 0; t--){
-            if (item < data[t]) {   //if the new item has a greater collection time value than the items in the queue 
+            if (*item < *data[t]) {   //if the new item has a greater collection time value than the items in the queue 
                 data[t + 1] = data[t];    // then it will move this down in the queue to a different index             
             }
             else{
@@ -32,7 +32,7 @@ ticket* ticketQueue :: remove(){
 }
 
 bool ticketQueue :: isFull(){
-    return count == SIZE;
+    return count == size;
 }
 
 bool ticketQueue :: isEmpty(){
