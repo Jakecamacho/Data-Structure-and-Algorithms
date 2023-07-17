@@ -15,7 +15,7 @@ void ticketQueue :: insert(ticket* item){
     else{ // if the queue is not empty, then it loops through all items in the queue 
         int t;
         for (t = (count -1); t >= 0; t--){
-            if (*item < *data[t]) {   //if the new item has a greater collection time value than the items in the queue 
+            if (*item > *data[t]) {   //if the new item has a greater collection time value than the items in the queue 
                 data[t + 1] = data[t];    // then it will move this down in the queue to a different index             
             }
             else{
